@@ -1,0 +1,118 @@
+{
+  "seed": 42,
+  "rows": 10000,
+  "train_rows": 6800,
+  "validation_rows": 1200,
+  "test_rows": 2000,
+  "float_accuracy": 0.9815,
+  "int8_accuracy": 0.9815,
+  "confusion_matrix": [
+    [
+      400,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      399,
+      1,
+      0,
+      0
+    ],
+    [
+      0,
+      1,
+      396,
+      3,
+      0
+    ],
+    [
+      2,
+      9,
+      10,
+      369,
+      10
+    ],
+    [
+      0,
+      0,
+      0,
+      1,
+      399
+    ]
+  ],
+  "classification_report": {
+    "EMPTY": {
+      "precision": 0.9950248756218906,
+      "recall": 1.0,
+      "f1-score": 0.9975062344139651,
+      "support": 400.0
+    },
+    "OCCUPIED_NORMAL": {
+      "precision": 0.9755501222493888,
+      "recall": 0.9975,
+      "f1-score": 0.9864029666254636,
+      "support": 400.0
+    },
+    "HIGH_ENERGY_USAGE": {
+      "precision": 0.972972972972973,
+      "recall": 0.99,
+      "f1-score": 0.9814126394052045,
+      "support": 400.0
+    },
+    "POOR_ENVIRONMENT": {
+      "precision": 0.9892761394101877,
+      "recall": 0.9225,
+      "f1-score": 0.9547218628719275,
+      "support": 400.0
+    },
+    "ABNORMAL_CONDITION": {
+      "precision": 0.9755501222493888,
+      "recall": 0.9975,
+      "f1-score": 0.9864029666254636,
+      "support": 400.0
+    },
+    "accuracy": 0.9815,
+    "macro avg": {
+      "precision": 0.9816748465007658,
+      "recall": 0.9814999999999999,
+      "f1-score": 0.9812893339884049,
+      "support": 2000.0
+    },
+    "weighted avg": {
+      "precision": 0.9816748465007658,
+      "recall": 0.9815,
+      "f1-score": 0.9812893339884048,
+      "support": 2000.0
+    }
+  },
+  "tflite_bytes": 3848,
+  "sha256": "a9df149dcb639e8796c2f5e43b9fb9f24d6ede44ed1c169833981150986f357f",
+  "features": [
+    "temperature",
+    "humidity",
+    "light",
+    "air_quality",
+    "occupancy",
+    "power_w"
+  ],
+  "scales": [
+    50.0,
+    100.0,
+    100.0,
+    100.0,
+    1.0,
+    100.0
+  ],
+  "labels": [
+    "EMPTY",
+    "OCCUPIED_NORMAL",
+    "HIGH_ENERGY_USAGE",
+    "POOR_ENVIRONMENT",
+    "ABNORMAL_CONDITION"
+  ],
+  "weight_quantization": "per-tensor int8",
+  "notice": "Held-out synthetic data only; not measured real-world performance."
+}

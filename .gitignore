@@ -1,0 +1,11 @@
+.venv/
+.pio/
+__pycache__/
+.pytest_cache/
+*.pyc
+.env
+firmware/include/secrets.h
+runtime/
+tinyml/models/*.keras
+tinyml/models/saved_model/
+node_modules/

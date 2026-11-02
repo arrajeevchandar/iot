@@ -1,0 +1,34 @@
+{
+  "version": 1,
+  "author": "Smart Campus Classroom",
+  "editor": "wokwi",
+  "parts": [
+    {"type":"wokwi-esp32-devkit-v1","id":"esp","top":30,"left":20,"attrs":{}},
+    {"type":"wokwi-dht22","id":"dht","top":-150,"left":-200,"attrs":{"temperature":"24","humidity":"50"}},
+    {"type":"wokwi-pir-motion-sensor","id":"pir","top":-140,"left":-20,"attrs":{}},
+    {"type":"wokwi-photoresistor-sensor","id":"ldr","top":-130,"left":180,"attrs":{"lux":"100"}},
+    {"type":"wokwi-potentiometer","id":"air","top":40,"left":280,"attrs":{"value":"205"}},
+    {"type":"wokwi-led","id":"light1","top":260,"left":-200,"attrs":{"color":"yellow","label":"LIGHT 1 / 20W"}},
+    {"type":"wokwi-resistor","id":"r1","top":330,"left":-200,"attrs":{"value":"220"}},
+    {"type":"wokwi-led","id":"light2","top":260,"left":-80,"attrs":{"color":"yellow","label":"LIGHT 2 / 20W"}},
+    {"type":"wokwi-resistor","id":"r2","top":330,"left":-80,"attrs":{"value":"220"}},
+    {"type":"wokwi-led","id":"fan","top":260,"left":40,"attrs":{"color":"blue","label":"FAN / 60W"}},
+    {"type":"wokwi-resistor","id":"r3","top":330,"left":40,"attrs":{"value":"220"}},
+    {"type":"wokwi-servo","id":"vent","top":260,"left":220,"attrs":{}},
+    {"type":"wokwi-buzzer","id":"buzzer","top":130,"left":-200,"attrs":{"volume":"0.1"}},
+    {"type":"wokwi-text","id":"label","top":-210,"left":-180,"attrs":{"text":"SMART CLASSROOM | Potentiometer = simulated pollution index (NOT ppm)"}}
+  ],
+  "connections": [
+    ["esp:TX0","$serialMonitor:RX","",[]], ["esp:RX0","$serialMonitor:TX","",[]],
+    ["dht:VCC","esp:3V3","red",[]], ["dht:GND","esp:GND.1","black",[]], ["dht:SDA","esp:D15","green",[]],
+    ["pir:VCC","esp:VIN","red",[]], ["pir:GND","esp:GND.1","black",[]], ["pir:OUT","esp:D13","green",[]],
+    ["ldr:VCC","esp:3V3","red",[]], ["ldr:GND","esp:GND.1","black",[]], ["ldr:AO","esp:D34","purple",[]],
+    ["air:VCC","esp:3V3","red",[]], ["air:GND","esp:GND.1","black",[]], ["air:SIG","esp:D35","purple",[]],
+    ["esp:D18","r1:1","orange",[]], ["r1:2","light1:A","orange",[]], ["light1:C","esp:GND.1","black",[]],
+    ["esp:D19","r2:1","orange",[]], ["r2:2","light2:A","orange",[]], ["light2:C","esp:GND.1","black",[]],
+    ["esp:D21","r3:1","blue",[]], ["r3:2","fan:A","blue",[]], ["fan:C","esp:GND.1","black",[]],
+    ["vent:V+","esp:VIN","red",[]], ["vent:GND","esp:GND.1","black",[]], ["vent:PWM","esp:D23","orange",[]],
+    ["buzzer:1","esp:GND.1","black",[]], ["buzzer:2","esp:D25","orange",[]]
+  ],
+  "dependencies": {}
+}

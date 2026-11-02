@@ -1,0 +1,46 @@
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:1184
+load:0x40078000,len:13232
+load:0x40080400,len:3028
+entry 0x400805e4
+SMART CLASSROOM | TinyML ready
+
+=== SMART CLASSROOM ===
+T 24.0 C | RH 50.0% | Light 50.1% | Air 20.0 (GOOD)
+EMPTY | AUTO | sensor OK
+L1 0 L2 0 Fan 0 Vent 0 Alarm 0
+Power 0.0 W | Energy 0.00000 kWh | Saved 0.103 Wh
+TinyML EMPTY (1.00) | Alert INFO
+
+=== SMART CLASSROOM ===
+T 46.0 C | RH 50.0% | Light 50.1% | Air 20.0 (GOOD)
+EMPTY | AUTO | sensor OK
+L1 0 L2 0 Fan 0 Vent 180 Alarm 1
+Power 0.0 W | Energy 0.00000 kWh | Saved 0.242 Wh
+TinyML ABNORMAL_CONDITION (0.99) | Alert CRITICAL
+
+=== SMART CLASSROOM ===
+T 31.0 C | RH 50.0% | Light 3.8% | Air 20.0 (GOOD)
+EMPTY | AUTO | sensor OK
+L1 0 L2 0 Fan 0 Vent 0 Alarm 0
+Power 0.0 W | Energy 0.00000 kWh | Saved 0.382 Wh
+TinyML EMPTY (0.99) | Alert INFO
+
+=== SMART CLASSROOM ===
+T 31.0 C | RH 50.0% | Light 3.8% | Air 20.0 (GOOD)
+OCCUPIED | AUTO | sensor OK
+L1 1 L2 1 Fan 1 Vent 0 Alarm 0
+Power 100.0 W | Energy 0.00011 kWh | Saved 0.410 Wh
+TinyML OCCUPIED_NORMAL (0.98) | Alert INFO
+
+=== SMART CLASSROOM ===
+T 31.0 C | RH 50.0% | Light 3.8% | Air 94.8 (DANGEROUS)
+EMPTY | AUTO | sensor OK
+L1 0 L2 0 Fan 0 Vent 180 Alarm 1
+Power 0.0 W | Energy 0.00017 kWh | Saved 0.493 Wh
+TinyML ABNORMAL_CONDITION (1.00) | Alert CRITICAL

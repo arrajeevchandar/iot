@@ -1,0 +1,4 @@
+.mobile-access { display: none; }
+@media (max-width: 850px) {
+  .mobile-access { display: block; align-self: flex-start; }
+}

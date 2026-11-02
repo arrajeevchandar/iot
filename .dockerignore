@@ -1,0 +1,9 @@
+.git
+.env
+.venv
+.pio
+runtime
+firmware/include/secrets.h
+tinyml/data
+tinyml/models/saved_model
+tinyml/models/*.keras

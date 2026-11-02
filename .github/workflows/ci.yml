@@ -1,0 +1,44 @@
+name: Validate classroom project
+on: [push, pull_request]
+jobs:
+  software:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - run: python -m pip install -r requirements-dev.txt -r tinyml/requirements.txt
+      - run: python -m pytest -q
+      - run: g++ -std=c++17 -Wall -Wextra -Werror -Ifirmware/include tests/firmware_core.cpp -o /tmp/classroom-core-test && /tmp/classroom-core-test
+      - run: npm ci
+      - name: Browser acceptance
+        run: |
+          python -m uvicorn dashboard.app:app --host 127.0.0.1 --port 8000 &
+          server_pid=$!
+          trap 'kill "$server_pid"' EXIT
+          for attempt in $(seq 1 30); do
+            if curl -fsS http://127.0.0.1:8000/api/health; then break; fi
+            sleep 1
+          done
+          npm run test:browser
+  firmware:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install platformio==6.1.18
+      - run: pio run -e esp32dev -j 4
+      - uses: actions/upload-artifact@v4
+        with:
+          name: classroom-firmware
+          path: |
+            .pio/build/esp32dev/firmware.bin
+            .pio/build/esp32dev/firmware.elf
+            .pio/build/esp32dev/bootloader.bin
+            .pio/build/esp32dev/partitions.bin
